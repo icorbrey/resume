@@ -1,0 +1,29 @@
+---
+import { z } from "astro:content";
+
+const schema = z.object({
+	phoneNumber: z.string(),
+	location: z.string(),
+	email: z.string(),
+	title: z.string(),
+	name: z.string(),
+});
+
+type Props = z.input<typeof schema>;
+const props = schema.parse(Astro.props);
+---
+
+<div class="w-full h-6 bg-green-400"></div>
+<header class="mt-8 px-8 flex flex-col tracking-wide uppercase">
+	<h1 class="text-6xl font-bold leading-none">
+		{props.name}
+	</h1>
+	<span class="-mt-2 text-2xl">{props.title}</span>
+	<span class="text font-light">
+		{props.location}
+		&centerdot;
+		{props.email}
+		&centerdot;
+		{props.phoneNumber}
+	</span>
+</header>

@@ -1,0 +1,29 @@
+---
+import { reference, z } from "astro:content";
+import { getEntry } from "astro:content";
+import Entry from "./Entry.astro";
+
+const schema = z.object({
+	entry: reference("education"),
+});
+
+type Props = z.input<typeof schema>;
+const props = await schema.parseAsync(Astro.props);
+
+const entry = await getEntry({
+	collection: "education",
+	id: props.entry.id,
+});
+
+const { Content } = await entry.render();
+---
+
+<Entry
+	title={entry.data.major}
+	subtitle={entry.data.minor}
+	details={entry.data.institution}
+	startDate={entry.data.startDate}
+	endDate={entry.data.endDate}
+>
+	<Content />
+</Entry>

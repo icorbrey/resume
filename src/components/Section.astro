@@ -1,0 +1,18 @@
+---
+import { z } from "astro:content";
+
+const schema = z.object({
+	title: z.string(),
+});
+
+type Props = z.input<typeof schema>;
+const props = schema.parse(Astro.props);
+---
+
+<section class="px-8 mt-6">
+	<h1 class="text-lg tracking-widest uppercase">
+		{props.title}
+	</h1>
+	<div class="w-12 border-t border-green-400"></div>
+	<slot />
+</section>

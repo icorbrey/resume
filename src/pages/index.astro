@@ -1,11 +1,32 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Experience from "../components/Experience.astro";
+import Education from "../components/Education.astro";
+import Heading from "../components/Heading.astro";
+import Project from "../components/Project.astro";
+import Section from "../components/Section.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<Welcome />
+	<Heading
+		name="Isaac Corbrey"
+		title="Software Engineer"
+		location="Fort Wayne, IN"
+		email="icorbrey@gmail.com"
+		phoneNumber="(260) 249-7113"
+	/>
+	<Section title="Experience">
+		<Experience entry="2024-01-do-it-best" />
+		<Experience entry="2023-08-saint-francis" />
+		<Experience entry="2019-07-core-bts" />
+		<Experience entry="2018-09-cyber-warriors" />
+		<!-- <Experience entry="2019-03-indiana-tech" /> -->
+	</Section>
+	<Section title="Projects">
+		<Project entry="2024-10-isaaccorbrey-com" />
+		<Project entry="2023-04-nintendo64-pac" />
+	</Section>
+	<Section title="Education">
+		<Education entry="2018-08-indiana-tech" />
+	</Section>
 </Layout>
